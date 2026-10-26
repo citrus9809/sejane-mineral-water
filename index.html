@@ -42,6 +42,35 @@ html[dir="rtl"] .contact,html[dir="rtl"] footer{text-align:center}
 html[dir="rtl"] .hero h1,html[dir="rtl"] .brand{direction:ltr;unicode-bidi:isolate}
 html[dir="rtl"] .hero .tagline{direction:ltr;text-align:right}
 @media(max-width:760px){.lang{max-width:48vw}.header-inner{gap:6px}.brand img{width:56px}.lang button{padding:7px 8px}}
+
+/* V4: compact language selector aligned at right edge of header */
+.header-inner .lang{margin-left:auto;display:flex;align-items:center;gap:5px;max-width:none;overflow:visible;border:1px solid #ffffff70;border-radius:9px;padding:3px 7px;background:#003e5355;flex-shrink:0}
+.header-inner .lang .language-icon{font-size:18px;line-height:1}
+.header-inner .lang select{width:118px;max-width:118px;min-width:0;border:0;background:transparent;color:#fff;font-size:13px;padding:7px 2px;outline-offset:2px}
+.header-inner .lang select option{color:#123e4b;background:#fff}
+@media(max-width:760px){.header-inner .lang{margin-left:auto;max-width:none;gap:3px;padding:2px 4px}.header-inner .lang select{width:90px;max-width:90px;font-size:12px}.header-inner .lang .language-icon{font-size:15px}.header-inner{gap:7px}}
+
+/* V6 — Horizontal five-link navigation on desktop, landscape and portrait. */
+.header-inner{display:flex;align-items:center;gap:clamp(6px,1vw,18px);width:min(1400px,98%);max-width:none}
+.header-inner .brand{flex:0 0 auto}
+.header-inner nav{display:flex!important;position:static!important;flex-direction:row!important;align-items:center!important;flex:1 1 auto;min-width:0;gap:clamp(10px,1.8vw,28px);padding:0!important;background:transparent!important;overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.header-inner nav a{flex:0 0 auto;white-space:nowrap}
+.header-inner .menu{display:none!important}
+.header-inner .lang{margin-left:0;flex:0 0 auto}
+@media (max-width:760px){
+ .header-inner{height:70px;gap:5px;width:99%;padding:0 3px}
+ .header-inner .brand img{width:39px;height:49px;object-fit:contain}
+ .header-inner nav{gap:10px;font-size:11px;line-height:1.4}
+ .header-inner nav a{font-size:11px;padding:8px 0}
+ .header-inner .lang{padding:2px 3px;gap:2px}
+ .header-inner .lang .language-icon{font-size:12px}
+ .header-inner .lang select{width:63px;max-width:63px;font-size:10px;padding:5px 1px}
+}
+@media (min-width:761px) and (max-height:500px){
+ .header-inner{height:66px}
+ .header-inner .brand img{width:54px;height:56px}
+ .header-inner nav{gap:clamp(10px,2vw,22px)}
+}
 </style>
 </head>
 <body>
@@ -50,8 +79,8 @@ html[dir="rtl"] .hero .tagline{direction:ltr;text-align:right}
 <nav id="nav" aria-label="Main navigation">
 <a href="#home" data-i="navHome">Home</a><a href="#story" data-i="navStory">Our Story</a><a href="#source" data-i="navSource">Water Source</a><a href="#product" data-i="navProduct">Product</a><a href="#contact" data-i="navContact">Contact</a>
 </nav>
-<div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="zh-Hant" aria-pressed="false">繁</button><button type="button" data-lang="zh-Hans" aria-pressed="false">简</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="ar" aria-pressed="false">العربية</button><button type="button" data-lang="fa" aria-pressed="false">فارسی</button><button type="button" data-lang="tr" aria-pressed="false">TR</button><button type="button" data-lang="he" aria-pressed="false">עברית</button><select id="moreLanguages" aria-label="More languages"><option value="">🌐 More</option><option value="es">Español</option><option value="ar">العربية</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="pt">Português</option></select></div>
-<button class="menu" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Open menu">☰</button>
+
+<div class="lang" role="group" aria-label="Select website language"><label for="moreLanguages" class="language-icon" aria-hidden="true">🌐</label><select id="moreLanguages" aria-label="Website language"><option value="en">English</option><option value="zh-Hant">繁體中文</option><option value="zh-Hans">简体中文</option><option value="es">Español</option><option value="ar">العربية</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="pt">Português</option></select></div>
 </div></header>
 <main>
 <section class="hero" id="home"><div class="container hero-inner">
@@ -89,9 +118,9 @@ const translations={"es":{"navHome": "Inicio", "navStory": "Nuestra historia", "
 en:{navHome:"Home",navStory:"Our Story",navSource:"Water Source",navProduct:"Product",navContact:"Contact",heroKicker:"Natural Mineral Water",heroTitle:"Natural Mineral Water",taglineCn:"源於自然 · 歲月淬鍊",explore:"Discover Our Story",f1:"Natural Mineral Water",f1sub:"Discover the source story",f2:"Naturally Occurring Minerals",f2sub:"Historical materials describe trace elements",f3:"Underground Aquifer",f3sub:"Reported depth: 125–200 m",storyKicker:"Our Story",storyTitle:"Rooted in Nature",storyBody:"SeJane 西珍 is inspired by the Maofeng Mountain region of Guangzhou, China. Historical brand materials describe naturally occurring selenium and other minerals and trace elements in the source water. We celebrate the natural character of mineral water and the importance of responsible water-source stewardship.",storyNote:"Specific mineral content and standards compliance should be confirmed using current accredited laboratory reports before being presented as verified product claims.",sourceKicker:"Water Source",sourceTitle:"Nature’s Hidden Reserve",sourceBody:"According to historical brand information, the mineral water is drawn from an underground aquifer approximately 125–200 meters below the surface. The brand materials also reference an assessment by Beijing Shanhaitian Evaluation Company regarding the source’s characteristics and water yield.",sourceNote:"These descriptions are attributed to historical brand materials; independent verification of the depth, assessment, water quality, and current production conditions is pending.",illustration:"Concept illustration; not a verified geological survey.",productKicker:"Our Product",productTitle:"SeJane Natural Mineral Water",productBody:"A 500 ml bottle design featuring SeJane’s original logo and a landscape-inspired label. The bottle image is based on brand-supplied artwork.",productNote:"Packaging artwork is a reference. Verify the final commercial label and product specifications before use.",inquire:"Contact Us",contactKicker:"Get in Touch",contactTitle:"Contact SeJane",contactBody:"For brand inquiries, product information and partnerships, please email us.",footerCn:"源於自然 · 歲月淬鍊"},
 "zh-Hant":{navHome:"首頁",navStory:"品牌故事",navSource:"天然水源",navProduct:"產品介紹",navContact:"聯絡我們",heroKicker:"天然礦泉水",heroTitle:"天然礦泉水",taglineCn:"源於自然 · 歲月淬鍊",explore:"探索品牌故事",f1:"天然礦泉水",f1sub:"了解珍貴水源故事",f2:"天然礦物質",f2sub:"歷史資料記載多種微量元素",f3:"地下含水層",f3sub:"資料記載深度約125–200公尺",storyKicker:"品牌故事",storyTitle:"源於自然的珍貴",storyBody:"SeJane 西珍的品牌故事源自中國廣州帽峰山地區。根據品牌提供的歷史資料，水源天然含硒，並含有多種礦物質與微量元素。西珍重視天然礦泉水的獨特性，也重視水源環境的妥善維護。",storyNote:"具體礦物質含量與是否符合相關標準，仍應以現行合格實驗室檢測報告核實後，方可作為已確認的產品宣稱。",sourceKicker:"天然水源",sourceTitle:"深藏地下的自然珍藏",sourceBody:"根據品牌歷史資料，礦泉水取自地表以下約125–200公尺的地下含水層。相關資料亦提及北京山海天評估公司曾就水源特性及水量進行評估。",sourceNote:"以上內容為歷史品牌資料所述；水源深度、評估結果、水質及現行生產條件尚待獨立核實。",illustration:"水源概念示意圖，並非經驗證的地質勘測圖。",productKicker:"產品介紹",productTitle:"西珍天然礦泉水",productBody:"500毫升瓶裝設計，沿用 SeJane 原有品牌 Logo 與山水意象標籤。圖片依據品牌提供的產品設計資料呈現。",productNote:"瓶身為包裝設計參考；正式使用前應核對實際商品標示與規格。",inquire:"聯絡我們",contactKicker:"歡迎聯繫",contactTitle:"聯絡西珍",contactBody:"品牌合作、產品資訊或其他詢問，歡迎透過電子郵件與我們聯繫。",footerCn:"源於自然 · 歲月淬鍊"},
 "zh-Hans":{navHome:"首页",navStory:"品牌故事",navSource:"天然水源",navProduct:"产品介绍",navContact:"联系我们",heroKicker:"天然矿泉水",heroTitle:"天然矿泉水",taglineCn:"源于自然 · 岁月淬炼",explore:"探索品牌故事",f1:"天然矿泉水",f1sub:"了解珍贵水源故事",f2:"天然矿物质",f2sub:"历史资料记载多种微量元素",f3:"地下含水层",f3sub:"资料记载深度约125–200米",storyKicker:"品牌故事",storyTitle:"源于自然的珍贵",storyBody:"SeJane 西珍的品牌故事源自中国广州帽峰山地区。根据品牌提供的历史资料，水源天然含硒，并含有多种矿物质与微量元素。西珍重视天然矿泉水的独特性，也重视水源环境的妥善维护。",storyNote:"具体矿物质含量及是否符合相关标准，仍应以现行合格实验室检测报告核实后，方可作为已确认的产品宣称。",sourceKicker:"天然水源",sourceTitle:"深藏地下的自然珍藏",sourceBody:"根据品牌历史资料，矿泉水取自地表以下约125–200米的地下含水层。相关资料亦提及北京山海天评估公司曾就水源特性及水量进行评估。",sourceNote:"以上内容为历史品牌资料所述；水源深度、评估结果、水质及现行生产条件尚待独立核实。",illustration:"水源概念示意图，并非经过验证的地质勘测图。",productKicker:"产品介绍",productTitle:"西珍天然矿泉水",productBody:"500毫升瓶装设计，沿用 SeJane 原有品牌 Logo 与山水意象标签。图片依据品牌提供的产品设计资料呈现。",productNote:"瓶身为包装设计参考；正式使用前应核对实际商品标示与规格。",inquire:"联系我们",contactKicker:"欢迎联系",contactTitle:"联系西珍",contactBody:"品牌合作、产品信息或其他咨询，欢迎通过电子邮件与我们联系。",footerCn:"源于自然 · 岁月淬炼"}};
-function setLanguage(lang){if(!translations[lang])lang="en";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.getElementById("moreLanguages").value=["en","zh-Hant","zh-Hans"].includes(lang)?"":lang;document.documentElement.dir=["ar","fa","he"].includes(lang)?"rtl":"ltr";document.querySelectorAll("[data-i]").forEach(el=>{el.textContent=translations[lang][el.dataset.i]});document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)));localStorage.setItem("sejane-language",lang);document.title="SeJane 西珍 | "+translations[lang].heroTitle}
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));document.getElementById("moreLanguages").addEventListener("change",e=>{if(e.target.value)setLanguage(e.target.value)});
-const menu=document.getElementById("menu"),nav=document.getElementById("nav");menu.addEventListener("click",()=>{let open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));
+function setLanguage(lang){if(!translations[lang])lang="en";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.getElementById("moreLanguages").value=lang;document.documentElement.dir=["ar","fa","he"].includes(lang)?"rtl":"ltr";document.querySelectorAll("[data-i]").forEach(el=>{el.textContent=translations[lang][el.dataset.i]});document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)));localStorage.setItem("sejane-language",lang);document.title="SeJane 西珍 | "+translations[lang].heroTitle}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));document.getElementById("moreLanguages").addEventListener("change",e=>setLanguage(e.target.value));
+const menu=document.getElementById("menu"),nav=document.getElementById("nav");menu?.addEventListener("click",()=>{let open=nav.classList.toggle("open");menu?.setAttribute("aria-expanded",String(open))});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false")}));
 let preferred;try{preferred=localStorage.getItem("sejane-language")}catch(e){}setLanguage(preferred||((["es","ar","fa","tr","he"].includes(navigator.language.toLowerCase().split("-")[0]))?navigator.language.toLowerCase().split("-")[0]:(navigator.language.toLowerCase().includes("zh")?(navigator.language.toLowerCase().includes("tw")||navigator.language.toLowerCase().includes("hk")?"zh-Hant":"zh-Hans"):"en")));
 </script>
 </body></html>
