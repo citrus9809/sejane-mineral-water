@@ -1,12 +1,6 @@
-SeJane · 硒珍 — V7 PNG 根目錄版本
+SeJane · 硒珍 V8 — mobile optimized
 
-將以下檔案全部上傳到 GitHub 儲存庫的根目錄（與 index.html 同一層）：
-index.html
-logo.png
-bottle.png
-maofeng.png
-water-source.png
-
-所有網站圖片均為真正 PNG 格式，HTML 不再包含 assets/ 路徑。
-請先在測試分支上傳並檢查，確認正常後再更新 main。
-舊的 JPG 檔可暫時保留，確認網站正常後再清理。
+Upload index.html, logo.png, bottle.png, maofeng.png, and water-source.png together to the ROOT of the GitHub repository (not assets/).
+Test on a branch before replacing main.
+Five menu links remain horizontal and scrollable on narrow screens. The language selector stays visible.
+This package is based on the previous V7 PNG website. It does not include minerals-benefit.png, which may be used by a newer live-site version. If your live index.html contains changes made after V7, replacing it with this V8 will overwrite those changes.
